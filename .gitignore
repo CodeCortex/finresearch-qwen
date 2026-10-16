@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+artifacts/
+*.safetensors
+data/raw/*
+data/processed/*.jsonl
+.DS_Store
