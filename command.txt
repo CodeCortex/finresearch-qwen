@@ -1,0 +1,31 @@
+pip install huggingface_hub
+huggingface-cli download \
+    hellotayssir/FinQA_TAT-QA_financial_finetuning_dataset \
+    --repo-type dataset \
+    --local-dir data/raw/financial_dataset
+
+
+
+
+python src/data/prepare_dataset.py
+python src/data/download_dataset.py
+
+
+load_dataset(
+    "hellotayssir/FinQA_TAT-QA_financial_finetuning_dataset",
+    split="train"
+)
+
+///
+from datasets import load_dataset
+train = load_dataset(
+    "json",
+    data_files="data/raw/financial_dataset/train.json",
+    split="train"
+)
+
+test = load_dataset(
+    "json",
+    data_files="data/raw/financial_dataset/test.json",
+    split="train"
+)

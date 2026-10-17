@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 artifacts/
 *.safetensors
-data/raw/*
+data/raw/*.jsonl
 data/processed/*.jsonl
 .DS_Store
 
