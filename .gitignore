@@ -6,3 +6,5 @@ artifacts/
 data/raw/*
 data/processed/*.jsonl
 .DS_Store
+
+.venv
