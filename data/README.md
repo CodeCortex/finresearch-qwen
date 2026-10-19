@@ -1,0 +1,3 @@
+# Data
+
+This project uses finance QA data derived from FinQA/TAT-QA through the Hugging Face dataset `hellotayssir/FinQA_TAT-QA_financial_finetuning_dataset` (CC BY 4.0 as documented by the dataset card). The preparation script downloads the public data, normalizes it into prompt/completion JSONL, deduplicates, creates validation from the provided training split, and preserves the provided test split for held-out evaluation.
