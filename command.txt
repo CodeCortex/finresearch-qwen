@@ -65,3 +65,31 @@ print(torch.cuda.get_device_name(0))
 
 # 7. Evaluate
 !python src/evaluation/benchmark.py --limit 200
+
+
+
+
+
+python -m src.rag.ingest \
+    --dir data/raw/company_reports \
+    --clear
+
+
+
+uvicorn api.main:app --reload --port 8000
+http://localhost:8000/docs
+
+
+another terminal
+source .venv/bin/activate
+streamlit run streamlit_app/app.py
+http://localhost:8501
+
+
+
+
+
+
+
+
+Built a financial research assistant using Qwen3-4B with QLoRA and a document-grounded RAG pipeline, implementing PDF/TXT/Markdown ingestion, page-aware chunking, Sentence Transformer embeddings, persistent ChromaDB retrieval, FastAPI serving, and a Streamlit research dashboard with source attribution.
