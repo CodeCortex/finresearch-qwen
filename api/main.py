@@ -19,7 +19,6 @@ app = FastAPI(
         "Qwen3-4B + QLoRA + RAG"
     ),
     docs_url="/docs",
-    redoc_url="/redoc",
     openapi_url="/openapi.json",
 )
 
