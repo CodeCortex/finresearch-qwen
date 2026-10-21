@@ -3,9 +3,9 @@ from __future__ import annotations
 import hashlib
 import os
 from pathlib import Path
-# from typing import Iterable
+from typing import Iterable
 
-from collections.abc import Iterable
+# from collections.abc import Iterable
 import chromadb
 from sentence_transformers import SentenceTransformer
 

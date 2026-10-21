@@ -1,3 +1,46 @@
+# Setup
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+
+# Add PDF/TXT/MD files to data/raw/company_reports/
+
+# Index RAG
+python -m src.rag.ingest --dir data/raw/company_reports --clear
+
+# Start API
+uvicorn api.main:app --reload --port 8000
+
+# In another terminal start UI
+streamlit run streamlit_app/app.py
+
+# API docs: http://localhost:8000/docs
+# UI:       http://localhost:8501
+
+# Docker
+cp .env.example .env
+docker compose -f deployment/docker-compose.yml up --build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 pip install huggingface_hub
 huggingface-cli download \
     hellotayssir/FinQA_TAT-QA_financial_finetuning_dataset \
