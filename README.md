@@ -100,6 +100,10 @@ Frontend:
 
 `http://localhost:8501`
 
+
+![FinResearch-Qwen Architecture](docs/streamlit1.png)
+![FinResearch-Qwen Architecture](docs/streamlit2.png)
+
 ## 🧪 Training & Evaluation
 
 ``` bash
