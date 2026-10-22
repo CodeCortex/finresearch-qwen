@@ -136,3 +136,41 @@ http://localhost:8501
 
 
 Built a financial research assistant using Qwen3-4B with QLoRA and a document-grounded RAG pipeline, implementing PDF/TXT/Markdown ingestion, page-aware chunking, Sentence Transformer embeddings, persistent ChromaDB retrieval, FastAPI serving, and a Streamlit research dashboard with source attribution.
+
+
+
+
+
+                         ┌──────────────────────┐
+                         │ Financial Documents  │
+                         │ PDF / TXT / Markdown │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                              Chunking
+                                    │
+                                    ▼
+                         Sentence Transformers
+                                    │
+                                    ▼
+                                ChromaDB
+                                    │
+                                    │
+User Question ────────────────► Retrieval
+                                    │
+                                    ▼
+                              Top-K Evidence
+                                    │
+                                    ▼
+                             Qwen3-4B + QLoRA
+                                    │
+                                    ▼
+                         Evidence-grounded Answer
+                                    │
+                    ┌───────────────┴───────────────┐
+                    ▼                               ▼
+                 FastAPI                         Streamlit
+                    │                               │
+                    └───────────────┬───────────────┘
+                                    ▼
+                              Final Research UI
