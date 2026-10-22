@@ -1,9 +1,20 @@
 import argparse, json, re
 from pathlib import Path
+import sys
 from collections import Counter
-from src.inference.generate import generate
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
+# PYTHON PATH
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+
+from src.inference.generate import generate
+
+
 
 DEFAULT_TEST_FILE = (
     PROJECT_ROOT
@@ -96,26 +107,224 @@ def main():
         )
     )
     ap.add_argument('--limit',type=int,default=100, help=("Number of test samples to evaluate, 0 = all")) 
-    
+    ap.add_argument(
+        "--results-dir",
+        type=Path,
+        default=DEFAULT_RESULTS_DIR,
+        help=(
+            "Directory where benchmark results "
+            "are saved."
+        )
+    )
     args=ap.parse_args()
-    rows=[json.loads(x) for x in open(arg s.file,encoding='utf-8')][:args.limit]
-    exact=num_ok=0
-    outputs=[]
-    for i,r in enumerate(rows,1):
-        pred=generate(r['prompt'], '')
-        e=norm(r['completion'])
-        p=norm(pred)
-        exact += int(e==p)
-        ev=numeric(e)
-        pv=numeric(p)
-        num_ok += int(ev is not None and ev==pv)
-        outputs.append({'id':i,'reference':r['completion'],'prediction':pred,'exact_match':e==p,'numeric_match':ev is not None and ev==pv})
-        print(i, outputs[-1]['numeric_match'])
     
-    result={'n':len(rows),'exact_match':exact/len(rows) if rows else 0,'numeric_match':num_ok/len(rows) if rows else 0}
-    Path('evaluation/results').mkdir(parents=True,exist_ok=True)
-    json.dump({'metrics':result,'samples':outputs},open('evaluation/results/benchmark.json','w'),indent=2)
-    print(json.dumps(result,indent=2))
+    test_file = args.file
+    if not test_file.is_absolute():
+    
+        test_file = (
+            PROJECT_ROOT / test_file
+        )
+
+    test_file = test_file.resolve()
+    
+    results_dir = args.results_dir
+    if not results_dir.is_absolute():
+
+        results_dir = (
+            PROJECT_ROOT / results_dir
+        )
+
+    results_dir = results_dir.resolve()
+    
+    # ========================================================
+    # PRINT CONFIGURATION
+    # ========================================================
+
+    print()
+    print("=" * 65)
+    print("FinResearch-Qwen Evaluation")
+    print("=" * 65)
+
+    print(
+        f"Project root : {PROJECT_ROOT}"
+    )
+
+    print(
+        f"Test file    : {test_file}"
+    )
+
+    print(
+        f"Results dir  : {results_dir}"
+    )
+
+    print(
+        f"Limit        : "
+        f"{args.limit if args.limit else 'ALL'}"
+    )
+
+    print("=" * 65)
+    print()
+
+   # ========================================================
+    # LOAD DATASET
+    # ========================================================
+
+    rows = load_jsonl(
+        test_file,
+        args.limit
+    )
+
+    if not rows:
+
+        raise RuntimeError(
+            "No evaluation records found."
+        )
+
+    print(
+        f"Loaded {len(rows)} evaluation records."
+    )
+
+    print()
+
+    
+
+    exact_matches=numeric_matches=0
+    outputs=[]
+    for i,r in enumerate(rows,start=1):
+        print(
+            f"[{i}/{len(r)}] "
+            f"Generating prediction..."
+        )
+        
+        prediction=generate(r['prompt'], '')
+        
+        expected=norm(r['completion'])
+        predicted=norm(prediction)
+        
+        is_exact_match = (
+            expected == predicted
+        )
+
+        exact_matches += int(
+            is_exact_match
+        )
+        
+        # numeric match
+    
+        expected_numeric = numeric(
+            expected
+        )
+
+        predicted_numeric = numeric(
+            predicted
+        )
+
+        is_numeric_match = (
+            expected_numeric is not None
+            and expected_numeric == predicted_numeric
+        )
+
+        numeric_matches += int(
+            is_numeric_match
+        )
+
+        outputs.append({'id':i,'reference':r['completion'],'prediction':prediction,'exact_match':is_exact_match,'numeric_match':is_numeric_match, "reference_numeric":(expected_numeric), "prediction_numeric":(predicted_numeric) })
+        print(
+            f"    exact_match  : "
+            f"{is_exact_match}"
+        )
+
+        print(
+            f"    numeric_match: "
+            f"{is_numeric_match}"
+        )
+        
+    
+    total = len(rows)
+    result = {
+
+        "n": total,
+
+        "exact_match": (
+            exact_matches / total
+        ),
+
+        "numeric_match": (
+            numeric_matches / total
+        )
+    }
+    
+    # ========================================================
+    # SAVE RESULTS
+    # ========================================================
+
+    results_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+    
+    result_file = (
+        results_dir
+        / "benchmark.json"
+    )
+
+    output = {
+
+        "metrics": result,
+
+        "config": {
+
+            "test_file": str(
+                test_file
+            ),
+
+            "limit": args.limit,
+
+            "seed": 42
+        },
+
+        "samples": outputs
+    }
+    
+    with result_file.open("w", encoding="utf-8") as file:
+        json.dump(output, file, indent=2, ensure_ascii=False)
+    
+    
+    # ========================================================
+    # FINAL OUTPUT
+    # ========================================================
+
+    print()
+    print("=" * 65)
+    print("Evaluation Complete")
+    print("=" * 65)
+
+    print(
+        f"Samples        : {total}"
+    )
+
+    print(
+        f"Exact Match    : "
+        f"{result['exact_match']:.4f}"
+    )
+
+    print(
+        f"Numeric Match  : "
+        f"{result['numeric_match']:.4f}"
+    )
+
+    print()
+    print(
+        f"Results saved to:"
+    )
+
+    print(
+        result_file
+    )
+
+    print("=" * 65)
+
+    
 
 if __name__=='__main__':
     main()
