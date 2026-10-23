@@ -11,6 +11,8 @@ python -m src.rag.ingest --dir data/raw/company_reports --clear
 
 # Start API
 uvicorn api.main:app --reload --port 8000
+or
+uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
 # In another terminal start UI
 streamlit run streamlit_app/app.py

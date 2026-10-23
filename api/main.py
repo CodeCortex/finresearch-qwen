@@ -11,6 +11,22 @@ from src.inference.generate import generate
 from src.rag.ingest import index_directory
 from src.rag.store import RAGStore
 
+from pathlib import Path
+PROJECT_ROOT = (
+    Path(__file__)
+    .resolve()
+    .parents[1]
+)
+
+def resolve_project_path(path: str) -> Path:
+    path = Path(path)
+    if not path.is_absolute():
+        path = (
+            PROJECT_ROOT / path
+        )
+    return path.resolve()
+
+
 app = FastAPI(
     title="FinResearch-Qwen API",
     version="2.0.0",
@@ -123,8 +139,11 @@ def research(request: ResearchRequest):
 @app.post("/v1/index", tags=["RAG"])
 def index(request: IndexRequest):
     try:
+        input_directory = resolve_project_path(
+        request.directory
+)
         files, chunks = index_directory(
-            input_dir=request.directory,
+            input_dir=str(input_directory),
             chunk_size=request.chunk_size,
             chunk_overlap=request.chunk_overlap,
             clear=request.clear,
