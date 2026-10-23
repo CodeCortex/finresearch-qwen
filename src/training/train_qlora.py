@@ -88,7 +88,8 @@ def main():
     bf16_supported = (
         torch.cuda.is_bf16_supported()
     )
-    dtype=(torch.bfloat16 if bf16_supported else torch.float16)
+    # dtype=(torch.bfloat16 if bf16_supported else torch.float16)
+    dtype = torch.float16
 
     
     print('GPU:', torch.cuda.get_device_name(0))
@@ -204,8 +205,15 @@ def main():
         save_total_limit=2,
         max_length=MAX_LENGTH,
         completion_only_loss=True,
-        bf16=bf16_supported,
-        fp16=not bf16_supported,
+        loss_type="nll",
+        bf16=False,
+        fp16=True,
+        
+        
+        
+        
+        # bf16=bf16_supported,
+        # fp16=not bf16_supported,
         gradient_checkpointing=True,
         optim="paged_adamw_8bit",
         report_to="none",
@@ -221,6 +229,21 @@ def main():
         processing_class=tokenizer,
         peft_config=peft_config,
     )
+    
+    
+    print("\n=== Trainable parameter dtypes ===")
+    for name, param in trainer.model.named_parameters():
+        if param.requires_grad:
+            print(name, param.dtype)
+            break
+    
+    print("\n=== Trainer precision settings ===")
+    print("fp16:", trainer.args.fp16)
+    print("bf16:", trainer.args.bf16)
+    print("Model dtype:", next(trainer.model.parameters()).dtype)    
+    
+    
+    
     
     # TRAIN
     print()
