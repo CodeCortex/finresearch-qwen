@@ -99,7 +99,7 @@ def main():
     train_file= (DATA_DIR/"train.jsonl")
     validation_file= (DATA_DIR/"validation.jsonl")
     
-    if not train_file.exist():
+    if not train_file.exists():
         raise FileNotFoundError(
             f"Training dataset not found:\n"
             f"{train_file}\n\n"
