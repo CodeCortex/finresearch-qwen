@@ -17,7 +17,7 @@ if str(PROJECT_ROOT) not in sys.path:
     
     
 # CONFIGURATION
-BASE_MODEL=os.getenv('MODEL_NAME','Qwen/Qwen3-4B')
+BASE_MODEL=os.getenv('MODEL_NAME','Qwen/Qwen3-0.6B')
 ADAPTER_DIR=os.getenv('ADAPTER_DIR','artifacts/finresearch-qwen')
 MAX_NEW_TOKENS = int(os.getenv("MAX_NEW_TOKENS", "512"))
 
@@ -55,8 +55,9 @@ def load_model():
         )
     
     # Compute dtype
-    bf16_supported = (torch.cuda.is_bf16_supported())
-    dtype = (torch.bfloat16 if bf16_supported else torch.float16)
+    # bf16_supported = (torch.cuda.is_bf16_supported())
+    # dtype = (torch.bfloat16 if bf16_supported else torch.float16)
+    dtype= torch.float16
     
     print(
         f"Loading model: {BASE_MODEL}"

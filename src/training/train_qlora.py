@@ -17,11 +17,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 
-MODEL_NAME=os.getenv('MODEL_NAME','Qwen/Qwen3-4B')
+MODEL_NAME=os.getenv('MODEL_NAME','Qwen/Qwen3-0.6B')
 DATA_DIR=os.getenv('DATA_DIR','data/processed')
 OUTPUT_DIR=os.getenv('OUTPUT_DIR','artifacts/finresearch-qwen')
 SEED=int(os.getenv('SEED','42'))
-MAX_LENGTH=int(os.getenv('MAX_LENGTH','2048'))
+MAX_LENGTH=int(os.getenv('MAX_LENGTH','1024'))
 
 
 
@@ -152,7 +152,7 @@ def main():
     # LORA CONFIGURATION
     print("Configuring LoRA...")
     peft_config = LoraConfig(
-        r=32,
+        r=8,
         lora_alpha=64,
         lora_dropout=0.05,
         bias="none",
@@ -189,19 +189,19 @@ def main():
         output_dir=str(
             OUTPUT_DIR
         ),
-        num_train_epochs=2,
+        num_train_epochs=1,
         per_device_train_batch_size=1,
         per_device_eval_batch_size=1,
-        gradient_accumulation_steps=16,
+        gradient_accumulation_steps=8,
         learning_rate=1e-4,
         weight_decay=0.01,
-        warmup_ratio=0.05,
+        # warmup_ratio=0.05,
         lr_scheduler_type="cosine",
         logging_steps=10,
         eval_strategy="steps",
-        eval_steps=100,
+        eval_steps=200,
         save_strategy="steps",
-        save_steps=100,
+        save_steps=200,
         save_total_limit=2,
         max_length=MAX_LENGTH,
         completion_only_loss=True,
