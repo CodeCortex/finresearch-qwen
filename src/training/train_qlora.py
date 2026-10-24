@@ -207,7 +207,7 @@ def main():
         completion_only_loss=True,
         loss_type="nll",
         bf16=False,
-        fp16=True,
+        fp16=False,
         
         
         
