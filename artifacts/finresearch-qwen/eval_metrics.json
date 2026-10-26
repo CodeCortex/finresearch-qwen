@@ -1,0 +1,10 @@
+{
+  "eval_loss": 0.7547875642776489,
+  "eval_runtime": 60.5484,
+  "eval_samples_per_second": 6.375,
+  "eval_steps_per_second": 6.375,
+  "eval_entropy": 0.7971987564579965,
+  "eval_mean_token_accuracy": 0.7509496383793614,
+  "eval_num_tokens": 2019240.0,
+  "epoch": 1.0
+}
