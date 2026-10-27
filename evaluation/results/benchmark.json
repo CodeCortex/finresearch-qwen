@@ -1,0 +1,464 @@
+{
+  "metrics": {
+    "n": 50,
+    "exact_match": 0.0,
+    "numeric_match": 0.16
+  },
+  "config": {
+    "test_file": "/content/finresearch-qwen/data/processed/test.jsonl",
+    "limit": 50,
+    "seed": 42
+  },
+  "samples": [
+    {
+      "id": 1,
+      "reference": "3.5%",
+      "prediction": "The reconciliation of the beginning and ending amount of unrecognized tax benefits is as follows:",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "3.5%",
+      "prediction_numeric": null
+    },
+    {
+      "id": 2,
+      "reference": "Granted, Vested, Forfeited",
+      "prediction": "The following table summarizes activity involving restricted stock and restricted stock unit awards for the year ended December 31, 2019:",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": "2019"
+    },
+    {
+      "id": 3,
+      "reference": "30.05",
+      "prediction": "The Purchase obligations are expressed as a percentage of  Total contractual obligations:",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "30.05",
+      "prediction_numeric": null
+    },
+    {
+      "id": 4,
+      "reference": "60%",
+      "prediction": "The percentual increase observed in the net derivative gains during 2006 and 2007 is 11.1%.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "60%",
+      "prediction_numeric": "11.1%"
+    },
+    {
+      "id": 5,
+      "reference": "1,825, 1,577, 1,772",
+      "prediction": "The share-based payments for the Board of directors in fiscal years ended June 30, 2017, 2018, and 2019 respectively are $1,825, $1,577, and $1,772.",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "1772",
+      "prediction_numeric": "1772"
+    },
+    {
+      "id": 6,
+      "reference": "-8%",
+      "prediction": "The percentage change in cash flows provided by ( used in ) operating activities including discontinued operations between 2009 and 2010 is approximately 1.1%.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-8%",
+      "prediction_numeric": "1.1%"
+    },
+    {
+      "id": 7,
+      "reference": "-4.3",
+      "prediction": "The change in revenue between 2018 and 2019 is 4.3",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-4.3",
+      "prediction_numeric": "4.3"
+    },
+    {
+      "id": 8,
+      "reference": "the net of losses incurred by Netsmart for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of the EIS Business that we no longer support effective as of March 31, 2018.",
+      "prediction": "The loss from discontinued operations represents the net of losses incurred by Netsmart for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of the EIS Business that we no longer support effective as of March 31, 2018.",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "2018",
+      "prediction_numeric": "2018"
+    },
+    {
+      "id": 9,
+      "reference": "-2172",
+      "prediction": "The change in the amount of Buildings and Improvements between 2018 and 2019 is -2192",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-2172",
+      "prediction_numeric": "-2192"
+    },
+    {
+      "id": 10,
+      "reference": "18.42%",
+      "prediction": "the public may obtain information on the operation of the public reference room by calling the sec at 1-800-sec-0330.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "18.42%",
+      "prediction_numeric": "-0330"
+    },
+    {
+      "id": 11,
+      "reference": "to accelerate and support research and development in the vulnerability of global navigation satellite systems and other high technology projects",
+      "prediction": "The government grants have been received to accelerate and support research and development in the vulnerability of global navigation satellite systems and other high technology projects.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": null
+    },
+    {
+      "id": 12,
+      "reference": "71,005, 68,490, 66,252",
+      "prediction": "The Weighted average common shares outstanding—basic in 2019, 2018, and 2017 were 71,005, 68,490, and 66,252",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "66252",
+      "prediction_numeric": "66252"
+    },
+    {
+      "id": 13,
+      "reference": "192",
+      "prediction": "approximately $ 554 million of these credit lines were available for use as of year-end 2016.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "192",
+      "prediction_numeric": "2016"
+    },
+    {
+      "id": 14,
+      "reference": "-17.6%",
+      "prediction": "The change in the annual goodwill impairment test from the first quarter to the second quarter was made to more closely align the impairment testing date with our long-range planning and forecasting process.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-17.6%",
+      "prediction_numeric": null
+    },
+    {
+      "id": 15,
+      "reference": "56.0%",
+      "prediction": "Sales to foreign and domestic distributors accounted for 56.0%, 62.5% and 57.5% of our net revenues for fiscal 2019, 2018 and 2017, respectively.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "56.0%",
+      "prediction_numeric": "2017"
+    },
+    {
+      "id": 16,
+      "reference": "-29.9%",
+      "prediction": "The rental expense included in other operations and maintenance expense was $ 84 million , $ 75 million and $ 107 million for 2002 , 2001 , and 2000 , respectively.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-29.9%",
+      "prediction_numeric": "2000"
+    },
+    {
+      "id": 17,
+      "reference": "1.9",
+      "prediction": "the ratio of the office space throughout the us to the office space for the corporate headquarters in bellevue is 1.0",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "1.9",
+      "prediction_numeric": "1.0"
+    },
+    {
+      "id": 18,
+      "reference": "12.9%",
+      "prediction": "The annual long-term debt maturities (excluding lease obligations and long-term doe obligations) for debt outstanding as of december a031 , 2017 , for the next five years are as follows: amount ( in thousands )",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "12.9%",
+      "prediction_numeric": "2017"
+    },
+    {
+      "id": 19,
+      "reference": "661",
+      "prediction": "The effect of prior year adjustments was offset by a full valuation allowance resulting in no impact on the provision for income taxes.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "661",
+      "prediction_numeric": null
+    },
+    {
+      "id": 20,
+      "reference": "$4,801",
+      "prediction": "The amount of unrecognized stock-based compensation expense related to unvested employee stock options in 2019 is $4,801",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "4801",
+      "prediction_numeric": "4801"
+    },
+    {
+      "id": 21,
+      "reference": "-3.4%",
+      "prediction": "The weighted average common shares outstanding for diluted computations increased by 1.5% (328.4 - 339.9 = -11.5).",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-3.4%",
+      "prediction_numeric": "-11.5"
+    },
+    {
+      "id": 22,
+      "reference": "-83.3%",
+      "prediction": "The operating loss increased by 14.7% (from 1.2 billion in 2007 to 2.2 billion in 2008).",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-83.3%",
+      "prediction_numeric": "2008"
+    },
+    {
+      "id": 23,
+      "reference": "12255264",
+      "prediction": "The following table presents common stock repurchases during each month for the fourth quarter of 2010: period total number of shares purchased [a] average price paid per share total number of shares purchased as part of a publicly announced planor program [b] maximum number ofshares that may yetbe purchased under the planor program [b]",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "12255264",
+      "prediction_numeric": "2010"
+    },
+    {
+      "id": 24,
+      "reference": "Accrued expenses and other payables",
+      "prediction": "The table shows the total accrued expenses and other payables for the years 2018 and 2019.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": "2019"
+    },
+    {
+      "id": 25,
+      "reference": "1072",
+      "prediction": "The difference in the total share-based compensation expense between 2018 and 2019 is $1072",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "1072",
+      "prediction_numeric": "1072"
+    },
+    {
+      "id": 26,
+      "reference": "15.12",
+      "prediction": "The percentage change in research and development credits, net of uncertain tax positions between 2018 and 2019, is approximately 12.5%.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "15.12",
+      "prediction_numeric": "12.5%"
+    },
+    {
+      "id": 27,
+      "reference": "75084",
+      "prediction": "The difference in Basic EPS Shares outstanding between 2018 and 2019 is 75089",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "75084",
+      "prediction_numeric": "75089"
+    },
+    {
+      "id": 28,
+      "reference": "9.97",
+      "prediction": "The % change in the balance, beginning of the period from 2018 to 2019 is 1.17",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "9.97",
+      "prediction_numeric": "1.17"
+    },
+    {
+      "id": 29,
+      "reference": "part disposal of intu Derby of £96.7 million, other sundry disposals of £75.3 million",
+      "prediction": "Cash flows from investing activities mainly reflected cash inflows related to the part disposal of intu Derby of £96.7 million and other sundry disposals of £75.3 million, partially offset by capital expenditure during the year of £127.7 million.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "75.3",
+      "prediction_numeric": "127.7"
+    },
+    {
+      "id": 30,
+      "reference": "-44%",
+      "prediction": "The percent change in operating leases between 2011/12 and 2013/4 is approximately 111.5%.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-44%",
+      "prediction_numeric": "111.5%"
+    },
+    {
+      "id": 31,
+      "reference": "0",
+      "prediction": "The Cost of living indexation rate is only applicable to DB pension plans.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "0",
+      "prediction_numeric": null
+    },
+    {
+      "id": 32,
+      "reference": "4909",
+      "prediction": "The total net revenue for fiscal 2017 and fiscal 2018 is $4909",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "4909",
+      "prediction_numeric": "4909"
+    },
+    {
+      "id": 33,
+      "reference": "unable to reasonably estimate the timing of the cash outflow due to uncertainties in the timing of the effective settlement of tax positions.",
+      "prediction": "The liability for uncertain tax positions refers to the maximum funding that would be expected under existing investment agreements with privately-held companies.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": null
+    },
+    {
+      "id": 34,
+      "reference": "result of lower purchases of customer premise equipment and lower investments related to the initial launch of Ignite TV.",
+      "prediction": "The decrease in capital expenditures in Cable this year was a result of lower purchases of customer premise equipment and lower investments related to the initial launch of Ignite TV.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": null
+    },
+    {
+      "id": 35,
+      "reference": "32.44",
+      "prediction": "The Property and equipment, net value is 1,141.9",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "32.44",
+      "prediction_numeric": "1141.9"
+    },
+    {
+      "id": 36,
+      "reference": "5190",
+      "prediction": "the goldman sachs group , inc . and subsidiaries notes to consolidated financial statements",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "5190",
+      "prediction_numeric": null
+    },
+    {
+      "id": 37,
+      "reference": "-97",
+      "prediction": "The net value of the unrealized gains and losses of the company's municipal bonds is $336",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "-97",
+      "prediction_numeric": "336"
+    },
+    {
+      "id": 38,
+      "reference": "2017",
+      "prediction": "The net loss was less -10,000 in 2019.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "2017",
+      "prediction_numeric": "2019"
+    },
+    {
+      "id": 39,
+      "reference": "8751",
+      "prediction": "The addition of PCM and increased variable compensation resulting from increased sales and gross profit in 2019 compared to 2018 were the primary drivers for the $90.9 million increase in personnel costs.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "8751",
+      "prediction_numeric": "90.9"
+    },
+    {
+      "id": 40,
+      "reference": "2689",
+      "prediction": "Our 2007 average fuel price increased by 9% ( 9 % ) and added $ 242 million of operating expenses compared to 2006 .",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "2689",
+      "prediction_numeric": "2006"
+    },
+    {
+      "id": 41,
+      "reference": "136218",
+      "prediction": "The average PSAs granted for 2017-2019 is approximately 371,672",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "136218",
+      "prediction_numeric": "371672"
+    },
+    {
+      "id": 42,
+      "reference": "2961",
+      "prediction": "The change in revenue from South America between 2017 and 2018 was -5505",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "2961",
+      "prediction_numeric": "-5505"
+    },
+    {
+      "id": 43,
+      "reference": "1.36",
+      "prediction": "The Weighted average grant date fair value increased by $1.36",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "1.36",
+      "prediction_numeric": "1.36"
+    },
+    {
+      "id": 44,
+      "reference": "15",
+      "prediction": "Media revenue increased by 1% in 2018 as a result of higher revenue at the Toronto Blue Jays, including a distribution from Major League Baseball, and higher Sportsnet and other network subscription revenue, partially offset by lower advertising revenue.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "15",
+      "prediction_numeric": "2018"
+    },
+    {
+      "id": 45,
+      "reference": "35.9%",
+      "prediction": "The percent of the square foot in millions of owned facilities in the other countries to the of the total owned facilities is 50.7%.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "35.9%",
+      "prediction_numeric": "50.7%"
+    },
+    {
+      "id": 46,
+      "reference": "6111",
+      "prediction": "2015 net revenue: $ 5829",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "6111",
+      "prediction_numeric": "5829"
+    },
+    {
+      "id": 47,
+      "reference": "780%",
+      "prediction": "The consulting and professional fees increased by 87.5% from 2006 to 2007.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "780%",
+      "prediction_numeric": "2007"
+    },
+    {
+      "id": 48,
+      "reference": "2017",
+      "prediction": "The change is primarily due to a $54.2 million gain on the sale of our equity method investments in fiscal 2018, a $73.0 million impairment charge in fiscal 2017 in our 8point3 Energy Partners LP equity investment balance due to the adoption of ASC 606 which materially increased the investment balance and consequently, led to the recognition of an other-than-temporary impairment in the first quarter of fiscal 2017.",
+      "exact_match": false,
+      "numeric_match": true,
+      "reference_numeric": "2017",
+      "prediction_numeric": "2017"
+    },
+    {
+      "id": 49,
+      "reference": "338928",
+      "prediction": "the average ending balance for valuation allowances for deferred income tax assets is $ 167142",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": "338928",
+      "prediction_numeric": "167142"
+    },
+    {
+      "id": 50,
+      "reference": "All directors and executive management have authority and responsibility for planning, directing and controlling the activities of the Group",
+      "prediction": "The key management personnel of the Group include All directors and executive management.",
+      "exact_match": false,
+      "numeric_match": false,
+      "reference_numeric": null,
+      "prediction_numeric": null
+    }
+  ]
+}
