@@ -1,5 +1,8 @@
 # Setup
 python3 -m venv .venv
+
+python3 -m venv .venv --without-pip
+
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
@@ -23,6 +26,14 @@ streamlit run streamlit_app/app.py
 # Docker
 cp .env.example .env
 docker compose -f deployment/docker-compose.yml up --build
+
+
+
+
+pip uninstall -y google-colab
+pip install "ipython>=8.10.0,<8.18.0" --force-reinstall
+PYTHONPATH=. uvicorn api.main:app --host 0.0.0.0 --port 8000 &
+
 
 
 
@@ -176,3 +187,28 @@ User Question ────────────────► Retrieval
                     └───────────────┬───────────────┘
                                     ▼
                               Final Research UI
+
+
+
+
+
+from google.colab import drive
+drive.mount('/content/drive')
+
+
+%cd /content/drive/MyDrive/
+!git clone https://github.com
+
+
+
+!zip -r finresearch-qwen.zip finresearch-qwen
+
+from google.colab import files
+files.download('finresearch-qwen.zip')
+
+
+
+
+
+
+!cp -r my_folder /content/drive/MyDrive/
