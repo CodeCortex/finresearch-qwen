@@ -3,9 +3,32 @@ services:
     build:
       context: ..
       dockerfile: deployment/Dockerfile
-    ports:
-      - "8000:8000"
+    container_name: finresearch-api
     env_file:
       - ../.env
+    ports:
+      - "8000:8000"
     volumes:
+      - ../data:/app/data
       - ../artifacts:/app/artifacts
+      - ../models:/app/models
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+
+  streamlit:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: finresearch-ui
+    env_file:
+      - ../.env
+    environment:
+      API_URL: http://api:8000
+      RAW_DIR: /app/data/raw/company_reports
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../data:/app/data
+      - ../artifacts:/app/artifacts
+    depends_on:
+      - api
+    command: streamlit run streamlit_app/app.py --server.address=0.0.0.0 --server.port=8501
